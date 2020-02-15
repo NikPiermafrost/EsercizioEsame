@@ -8,7 +8,7 @@ namespace EsercizioEsame.Models
     public partial class EsameContext : DbContext
     {
         public EsameContext()
-            : base("name=EsameContext")
+            : base("name=Exam")
         {
         }
 
@@ -17,6 +17,11 @@ namespace EsercizioEsame.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Anagrafica>()
+                .HasMany(e => e.Tickets)
+                .WithRequired(e => e.Anagrafica)
+                .HasForeignKey(e => e.UserId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

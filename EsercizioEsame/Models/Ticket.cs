@@ -11,9 +11,7 @@ namespace EsercizioEsame.Models
     {
         public int TicketId { get; set; }
 
-        [Required]
-        [StringLength(128)]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         [StringLength(50)]
         public string Agent { get; set; }
@@ -34,5 +32,7 @@ namespace EsercizioEsame.Models
         public string Description { get; set; }
 
         public string Answer { get; set; }
+
+        public virtual Anagrafica Anagrafica { get; set; }
     }
 }

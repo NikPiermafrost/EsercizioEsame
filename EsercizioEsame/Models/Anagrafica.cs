@@ -9,6 +9,12 @@ namespace EsercizioEsame.Models
     [Table("Anagrafica")]
     public partial class Anagrafica
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Anagrafica()
+        {
+            Tickets = new HashSet<Ticket>();
+        }
+
         public int AnagraficaId { get; set; }
 
         [StringLength(50)]
@@ -31,8 +37,7 @@ namespace EsercizioEsame.Models
         [StringLength(50)]
         public string CodiceAnagrafica { get; set; }
 
-        [Required]
-        [StringLength(128)]
-        public string UserId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

@@ -10,107 +10,107 @@ using EsercizioEsame.Models;
 
 namespace EsercizioEsame.Controllers
 {
-    public class TicketsController : Controller
+    public class AnagraficasController : Controller
     {
         private EsameContext db = new EsameContext();
 
-        // GET: Tickets
+        // GET: Anagraficas
         public ActionResult Index()
         {
-            return View(db.Tickets.ToList());
+            return View(db.Anagraficas.ToList());
         }
 
-        // GET: Tickets/Details/5
+        // GET: Anagraficas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
-            if (ticket == null)
+            Anagrafica anagrafica = db.Anagraficas.Find(id);
+            if (anagrafica == null)
             {
                 return HttpNotFound();
             }
-            return View(ticket);
+            return View(anagrafica);
         }
 
-        // GET: Tickets/Create
+        // GET: Anagraficas/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Tickets/Create
+        // POST: Anagraficas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TicketId,UserId,Agent,RequestDate,CloseDate,StatusRequest,Request,Description,Answer")] Ticket ticket)
+        public ActionResult Create([Bind(Include = "AnagraficaId,Nome,Cognome,Indirizzo,Telefono,IsCliente,IsFornitore,IsInterno,CodiceAnagrafica,UserId")] Anagrafica anagrafica)
         {
             if (ModelState.IsValid)
             {
-                db.Tickets.Add(ticket);
+                db.Anagraficas.Add(anagrafica);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(ticket);
+            return View(anagrafica);
         }
 
-        // GET: Tickets/Edit/5
+        // GET: Anagraficas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
-            if (ticket == null)
+            Anagrafica anagrafica = db.Anagraficas.Find(id);
+            if (anagrafica == null)
             {
                 return HttpNotFound();
             }
-            return View(ticket);
+            return View(anagrafica);
         }
 
-        // POST: Tickets/Edit/5
+        // POST: Anagraficas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TicketId,UserId,Agent,RequestDate,CloseDate,StatusRequest,Request,Description,Answer")] Ticket ticket)
+        public ActionResult Edit([Bind(Include = "AnagraficaId,Nome,Cognome,Indirizzo,Telefono,IsCliente,IsFornitore,IsInterno,CodiceAnagrafica,UserId")] Anagrafica anagrafica)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ticket).State = EntityState.Modified;
+                db.Entry(anagrafica).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(ticket);
+            return View(anagrafica);
         }
 
-        // GET: Tickets/Delete/5
+        // GET: Anagraficas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ticket ticket = db.Tickets.Find(id);
-            if (ticket == null)
+            Anagrafica anagrafica = db.Anagraficas.Find(id);
+            if (anagrafica == null)
             {
                 return HttpNotFound();
             }
-            return View(ticket);
+            return View(anagrafica);
         }
 
-        // POST: Tickets/Delete/5
+        // POST: Anagraficas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Ticket ticket = db.Tickets.Find(id);
-            db.Tickets.Remove(ticket);
+            Anagrafica anagrafica = db.Anagraficas.Find(id);
+            db.Anagraficas.Remove(anagrafica);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
