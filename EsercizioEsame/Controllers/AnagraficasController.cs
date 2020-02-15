@@ -46,7 +46,7 @@ namespace EsercizioEsame.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AnagraficaId,Nome,Cognome,Indirizzo,Telefono,IsCliente,IsFornitore,IsInterno,CodiceAnagrafica,UserId")] Anagrafica anagrafica)
+        public ActionResult Create([Bind(Include = "AnagraficaId,Nome,Cognome,Indirizzo,Telefono,IsCliente,IsFornitore,IsInterno,CodiceAnagrafica")] Anagrafica anagrafica)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace EsercizioEsame.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AnagraficaId,Nome,Cognome,Indirizzo,Telefono,IsCliente,IsFornitore,IsInterno,CodiceAnagrafica,UserId")] Anagrafica anagrafica)
+        public ActionResult Edit([Bind(Include = "AnagraficaId,Nome,Cognome,Indirizzo,Telefono,IsCliente,IsFornitore,IsInterno,CodiceAnagrafica")] Anagrafica anagrafica)
         {
             if (ModelState.IsValid)
             {

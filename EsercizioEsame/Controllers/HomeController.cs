@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EsercizioEsame.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,10 @@ namespace EsercizioEsame.Controllers
 {
     public class HomeController : Controller
     {
+        private EsameContext db = new EsameContext();
         public ActionResult Index()
         {
-            return View();
+            return View(db.Tickets.OrderByDescending(x => true).Take(10).ToList());
         }
 
         public ActionResult About()

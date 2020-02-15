@@ -17,9 +17,11 @@ namespace EsercizioEsame.Models
         public string Agent { get; set; }
 
         [Column(TypeName = "datetime2")]
+        [DataType(DataType.Date)]
         public DateTime RequestDate { get; set; }
 
         [Column(TypeName = "datetime2")]
+        [DataType(DataType.Date)]
         public DateTime? CloseDate { get; set; }
 
         public int StatusRequest { get; set; }
