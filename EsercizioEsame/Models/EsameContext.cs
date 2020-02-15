@@ -8,7 +8,7 @@ namespace EsercizioEsame.Models
     public partial class EsameContext : DbContext
     {
         public EsameContext()
-            : base("name=Exam")
+            : base("name=DefaultConnection")
         {
         }
 
